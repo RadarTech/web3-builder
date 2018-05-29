@@ -1,6 +1,5 @@
 import * as Web3 from 'web3';
-import { RpcConnection } from './types';
-import { Subprovider } from 'subproviders';
+import { RpcConnection, Subprovider } from './types';
 import Web3ProviderEngine = require('web3-provider-engine');
 export declare class Web3Builder {
     provider: Web3ProviderEngine;

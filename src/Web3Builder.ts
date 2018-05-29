@@ -1,7 +1,6 @@
 import * as Web3 from 'web3';
-import { InfuraNetwork, RpcConnection } from './types';
+import { InfuraNetwork, RpcConnection, Subprovider } from './types';
 import {
-  Subprovider,
   NonceTrackerSubprovider,
   RedundantRPCSubprovider } from 'subproviders';
 import { PUBLIC_RPC_PROVIDER_URLS } from './constants';
