@@ -1,0 +1,27 @@
+{
+  "name": "web3-builder",
+  "version": "0.1.0",
+  "description": "A library that simplifies web3 creation.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RadarRelay/web3-builder.git"
+  },
+  "author": "Radar Relay <dev@radarrelay.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RadarRelay/web3-builder/issues"
+  },
+  "homepage": "https://github.com/RadarRelay/web3-builder#readme",
+  "dependencies": {
+    "add": "^2.0.6",
+    "subproviders": "/Users/cavanflynn/source/signal/subproviders",
+    "web3-provider-engine": "^14.0.5",
+    "web3-typescript-typings": "^0.10.2",
+    "yarn": "^1.7.0"
+  }
+}

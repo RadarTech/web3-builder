@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "declaration": true,
+    "outDir": "dist"
+  },
+  "include": [
+    "src/**/*",
+    "./node_modules/web3-typescript-typings/index.d.ts"
+  ]
+}
