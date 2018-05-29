@@ -12,6 +12,6 @@ export type InfuraConfig = {
 
 export type RpcConnection = string | InfuraConfig;
 
-export interface Subprovider {
+export interface WalletSubprovider {
   handleRequest();
 }

@@ -1,5 +1,5 @@
 import * as Web3 from 'web3';
-import { InfuraNetwork, RpcConnection, Subprovider } from './types';
+import { InfuraNetwork, RpcConnection, WalletSubprovider } from './types';
 import {
   NonceTrackerSubprovider,
   RedundantRPCSubprovider } from 'subproviders';
@@ -8,19 +8,19 @@ import Web3ProviderEngine = require('web3-provider-engine');
 
 export class Web3Builder {
   public provider: Web3ProviderEngine;
-  private _currentSigningSubprovider: Subprovider;
+  private _currentWalletSubprovider: WalletSubprovider;
   private _currentRpcSubprovider: RedundantRPCSubprovider;
   private _cacheNonce: boolean;
 
   /**
    * Creates a new web3 instance
    *
-   * @param {TransactionManager} transactionManager The transaction manager
+   * @param {WalletSubprovider} walletSubprovider The wallet subprovider
    * @param {RpcConnection} [connection=InfuraNetwork.Mainnet] The rpc connection
    * @param {boolean} [cacheNonce] Cache the nonce
    */
   public createWeb3(
-    signingSubprovider: Subprovider,
+    walletSubprovider: WalletSubprovider,
     connection: RpcConnection = InfuraNetwork.Mainnet,
     cacheNonce?: boolean
   ): Web3 {
@@ -28,17 +28,17 @@ export class Web3Builder {
       PUBLIC_RPC_PROVIDER_URLS(connection)
     );
 
-    return this.constructWeb3Object(signingSubprovider, rpcSubprovider, cacheNonce);
+    return this.constructWeb3Object(walletSubprovider, rpcSubprovider, cacheNonce);
   }
 
   /**
-   * Update the transaction and message signer
+   * Update the active wallet
    *
-   * @param {Subprovider} signingSubprovider The signing subprovider
+   * @param {WalletSubprovider} walletSubprovider The wallet subprovider
    */
-  public updateSigner(signingSubprovider: Subprovider): Web3 {
+  public updateWallet(walletSubprovider: WalletSubprovider): Web3 {
     return this.constructWeb3Object(
-      signingSubprovider,
+      walletSubprovider,
       this._currentRpcSubprovider,
       this._cacheNonce
     );
@@ -55,7 +55,7 @@ export class Web3Builder {
     );
 
     return this.constructWeb3Object(
-      this._currentSigningSubprovider,
+      this._currentWalletSubprovider,
       rpcSubprovider,
       this._cacheNonce
     );
@@ -64,12 +64,12 @@ export class Web3Builder {
   /**
    * Constructs the web3 object
    *
-   * @param {Subprovider} signingSubprovider The signing subprovider
+   * @param {WalletSubprovider} walletSubprovider The wallet subprovider
    * @param {RedundantRPCSubprovider} rpcSubprovider The rpc subprovider
    * @param {boolean} [cacheNonce] Cache the nonce with the nonce tracker subprovider
    */
   private constructWeb3Object(
-    signingSubprovider: Subprovider,
+    walletSubprovider: WalletSubprovider,
     rpcSubprovider: RedundantRPCSubprovider,
     cacheNonce?: boolean
   ): Web3 {
@@ -79,14 +79,14 @@ export class Web3Builder {
       this.provider.addProvider(new NonceTrackerSubprovider());
     }
 
-    this.provider.addProvider(signingSubprovider);
+    this.provider.addProvider(walletSubprovider);
     this.provider.addProvider(rpcSubprovider);
 
     // Unlock provider engine without block polling
     (this.provider as any)._ready.go();
 
     // Set current subproviders
-    this._currentSigningSubprovider = signingSubprovider;
+    this._currentWalletSubprovider = walletSubprovider;
     this._currentRpcSubprovider = rpcSubprovider;
     this._cacheNonce = cacheNonce;
 

@@ -9,21 +9,21 @@ class Web3Builder {
     /**
      * Creates a new web3 instance
      *
-     * @param {TransactionManager} transactionManager The transaction manager
+     * @param {WalletSubprovider} walletSubprovider The wallet subprovider
      * @param {RpcConnection} [connection=InfuraNetwork.Mainnet] The rpc connection
      * @param {boolean} [cacheNonce] Cache the nonce
      */
-    createWeb3(signingSubprovider, connection = types_1.InfuraNetwork.Mainnet, cacheNonce) {
+    createWeb3(walletSubprovider, connection = types_1.InfuraNetwork.Mainnet, cacheNonce) {
         const rpcSubprovider = new subproviders_1.RedundantRPCSubprovider(constants_1.PUBLIC_RPC_PROVIDER_URLS(connection));
-        return this.constructWeb3Object(signingSubprovider, rpcSubprovider, cacheNonce);
+        return this.constructWeb3Object(walletSubprovider, rpcSubprovider, cacheNonce);
     }
     /**
-     * Update the transaction and message signer
+     * Update the active wallet
      *
-     * @param {Subprovider} signingSubprovider The signing subprovider
+     * @param {WalletSubprovider} walletSubprovider The wallet subprovider
      */
-    updateSigner(signingSubprovider) {
-        return this.constructWeb3Object(signingSubprovider, this._currentRpcSubprovider, this._cacheNonce);
+    updateWallet(walletSubprovider) {
+        return this.constructWeb3Object(walletSubprovider, this._currentRpcSubprovider, this._cacheNonce);
     }
     /**
      * Update the rpc connection
@@ -32,26 +32,26 @@ class Web3Builder {
      */
     updateRpcConnection(connection) {
         const rpcSubprovider = new subproviders_1.RedundantRPCSubprovider(constants_1.PUBLIC_RPC_PROVIDER_URLS(connection));
-        return this.constructWeb3Object(this._currentSigningSubprovider, rpcSubprovider, this._cacheNonce);
+        return this.constructWeb3Object(this._currentWalletSubprovider, rpcSubprovider, this._cacheNonce);
     }
     /**
      * Constructs the web3 object
      *
-     * @param {Subprovider} signingSubprovider The signing subprovider
+     * @param {WalletSubprovider} walletSubprovider The wallet subprovider
      * @param {RedundantRPCSubprovider} rpcSubprovider The rpc subprovider
      * @param {boolean} [cacheNonce] Cache the nonce with the nonce tracker subprovider
      */
-    constructWeb3Object(signingSubprovider, rpcSubprovider, cacheNonce) {
+    constructWeb3Object(walletSubprovider, rpcSubprovider, cacheNonce) {
         this.provider = new Web3ProviderEngine();
         if (cacheNonce) {
             this.provider.addProvider(new subproviders_1.NonceTrackerSubprovider());
         }
-        this.provider.addProvider(signingSubprovider);
+        this.provider.addProvider(walletSubprovider);
         this.provider.addProvider(rpcSubprovider);
         // Unlock provider engine without block polling
         this.provider._ready.go();
         // Set current subproviders
-        this._currentSigningSubprovider = signingSubprovider;
+        this._currentWalletSubprovider = walletSubprovider;
         this._currentRpcSubprovider = rpcSubprovider;
         this._cacheNonce = cacheNonce;
         return new Web3(this.provider);

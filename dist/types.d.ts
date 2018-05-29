@@ -9,6 +9,6 @@ export declare type InfuraConfig = {
     apiKey?: string;
 };
 export declare type RpcConnection = string | InfuraConfig;
-export interface Subprovider {
+export interface WalletSubprovider {
     handleRequest(): any;
 }
