@@ -10,5 +10,5 @@ export declare type InfuraConfig = {
 };
 export declare type RpcConnection = string | InfuraConfig;
 export interface WalletSubprovider {
-    handleRequest(): any;
+    handleRequest(payload: any, next: () => void, end: (err: Error | null, result?: any) => void): any;
 }
