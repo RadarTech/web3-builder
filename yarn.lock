@@ -2444,7 +2444,7 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-"subproviders@file:../signal/subproviders":
+subproviders@../subproviders:
   version "0.5.0"
   dependencies:
     "@0xproject/assert" "^0.0.20"

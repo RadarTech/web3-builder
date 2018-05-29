@@ -37,7 +37,7 @@ class Web3Builder {
     /**
      * Constructs the web3 object
      *
-     * @param {PassThroughSigningSubprovider} signingSubprovider The signing subprovider
+     * @param {Subprovider} signingSubprovider The signing subprovider
      * @param {RedundantRPCSubprovider} rpcSubprovider The rpc subprovider
      * @param {boolean} [cacheNonce] Cache the nonce with the nonce tracker subprovider
      */
