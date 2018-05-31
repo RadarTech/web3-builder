@@ -2,7 +2,7 @@ import * as Web3 from 'web3';
 import { InfuraNetwork, RpcConnection, WalletSubprovider } from './types';
 import {
   NonceTrackerSubprovider,
-  RedundantRPCSubprovider } from 'subproviders';
+  RedundantRPCSubprovider } from '@radarrelay/subproviders';
 import { PUBLIC_RPC_PROVIDER_URLS } from './constants';
 import Web3ProviderEngine = require('web3-provider-engine');
 
@@ -25,7 +25,7 @@ export class Web3Builder {
     cacheNonce?: boolean
   ): Web3 {
     const rpcSubprovider = new RedundantRPCSubprovider(
-      PUBLIC_RPC_PROVIDER_URLS(connection)
+      PUBLIC_RPC_PROVIDER_URLS(connection) as string[]
     );
 
     return this.constructWeb3Object(walletSubprovider, rpcSubprovider, cacheNonce);
@@ -51,7 +51,7 @@ export class Web3Builder {
    */
   public updateRpcConnection(connection: RpcConnection): Web3 {
     const rpcSubprovider = new RedundantRPCSubprovider(
-      PUBLIC_RPC_PROVIDER_URLS(connection)
+      PUBLIC_RPC_PROVIDER_URLS(connection) as string[]
     );
 
     return this.constructWeb3Object(

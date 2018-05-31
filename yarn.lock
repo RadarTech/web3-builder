@@ -50,6 +50,25 @@
     lodash "^4.17.4"
     web3 "^0.20.0"
 
+"@radarrelay/subproviders@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@radarrelay/subproviders/-/subproviders-0.5.0.tgz#a502d81417ae75ad555bd19d260117f39e393cba"
+  dependencies:
+    "@0xproject/assert" "^0.0.20"
+    "@0xproject/types" "^0.2.3"
+    "@0xproject/utils" "^0.3.4"
+    bn.js "^4.11.8"
+    es6-promisify "^5.0.0"
+    eth-lightwallet "^3.0.1"
+    ethereumjs-tx "^1.3.3"
+    ethereumjs-util "^5.1.1"
+    hdkey "^0.7.1"
+    ledgerco "github:0xProject/ledger-node-js-api"
+    lodash "^4.17.4"
+    semaphore-async-await "^1.5.1"
+    web3 "^0.20.0"
+    web3-provider-engine "^13.0.1"
+
 "@types/node@^8.0.53":
   version "8.10.17"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.17.tgz#d48cf10f0dc6dcf59f827f5a3fc7a4a6004318d3"
@@ -120,7 +139,7 @@ async-eventemitter@^0.2.2:
   dependencies:
     async "^2.4.0"
 
-async-eventemitter@ahultgren/async-eventemitter#fa06e39e56786ba541c180061dbf2c0a5bbf951c:
+"async-eventemitter@github:ahultgren/async-eventemitter#fa06e39e56786ba541c180061dbf2c0a5bbf951c":
   version "0.2.3"
   resolved "https://codeload.github.com/ahultgren/async-eventemitter/tar.gz/fa06e39e56786ba541c180061dbf2c0a5bbf951c"
   dependencies:
@@ -743,8 +762,8 @@ buffer-compare@=1.1.1:
   resolved "https://registry.yarnpkg.com/buffer-compare/-/buffer-compare-1.1.1.tgz#5be7be853af89198d1f4ddc090d1d66a48aef596"
 
 buffer-from@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.0.0.tgz#4cb8832d23612589b0406e9e2956c17f06fdf531"
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.0.tgz#87fcaa3a298358e0ade6e442cfce840740d1ad04"
 
 buffer-shims@^1.0.0:
   version "1.0.0"
@@ -1696,7 +1715,7 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-ledgerco@0xProject/ledger-node-js-api:
+"ledgerco@github:0xProject/ledger-node-js-api":
   version "1.1.3"
   resolved "https://codeload.github.com/0xProject/ledger-node-js-api/tar.gz/24aed21b8b362f2afc86faa578f38955ae2319ba"
   dependencies:
@@ -2443,24 +2462,6 @@ strip-hex-prefix@1.0.0:
 strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
-
-subproviders@../subproviders:
-  version "0.5.0"
-  dependencies:
-    "@0xproject/assert" "^0.0.20"
-    "@0xproject/types" "^0.2.3"
-    "@0xproject/utils" "^0.3.4"
-    bn.js "^4.11.8"
-    es6-promisify "^5.0.0"
-    eth-lightwallet "^3.0.1"
-    ethereumjs-tx "^1.3.3"
-    ethereumjs-util "^5.1.1"
-    hdkey "^0.7.1"
-    ledgerco "0xProject/ledger-node-js-api"
-    lodash "^4.17.4"
-    semaphore-async-await "^1.5.1"
-    web3 "^0.20.0"
-    web3-provider-engine "^13.0.1"
 
 supports-color@^2.0.0:
   version "2.0.0"
