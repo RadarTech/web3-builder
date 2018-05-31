@@ -1,6 +1,6 @@
 {
   "name": "@radarrelay/web3-builder",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A library that simplifies web3 creation.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,10 +19,8 @@
   },
   "homepage": "https://github.com/RadarRelay/web3-builder#readme",
   "dependencies": {
-    "@radarrelay/subproviders": "^0.5.0",
-    "add": "^2.0.6",
-    "web3-provider-engine": "^14.0.5",
-    "web3-typescript-typings": "^0.10.2",
-    "yarn": "^1.7.0"
+    "@radarrelay/subproviders": "^0.5.3",
+    "web3-provider-engine": "14.0.5",
+    "web3-typescript-typings": "^0.10.2"
   }
 }

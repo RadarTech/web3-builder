@@ -27,7 +27,6 @@ export class Web3Builder {
     const rpcSubprovider = new RedundantRPCSubprovider(
       PUBLIC_RPC_PROVIDER_URLS(connection) as string[]
     );
-
     return this.constructWeb3Object(walletSubprovider, rpcSubprovider, cacheNonce);
   }
 
@@ -74,17 +73,16 @@ export class Web3Builder {
     cacheNonce?: boolean
   ): Web3 {
     this.provider = new Web3ProviderEngine();
-
     if (cacheNonce) {
       this.provider.addProvider(new NonceTrackerSubprovider());
     }
 
     this.provider.addProvider(walletSubprovider);
     this.provider.addProvider(rpcSubprovider);
-
+    
     // Unlock provider engine without block polling
     (this.provider as any)._ready.go();
-
+    
     // Set current subproviders
     this._currentWalletSubprovider = walletSubprovider;
     this._currentRpcSubprovider = rpcSubprovider;
