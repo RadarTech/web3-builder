@@ -1,6 +1,6 @@
 {
   "name": "@radarrelay/web3-builder",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A library that simplifies web3 creation.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
