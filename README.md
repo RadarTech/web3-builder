@@ -33,7 +33,7 @@ yarn add @radarrelay/web3-builder
 
 ### Instantiation
 ```javascript
-import { Web3Builder } from './Web3Builder';
+import { Web3Builder } from '@radarrelay/web3-builder';
 
 const web3Builder = new Web3Builder();
 ```
