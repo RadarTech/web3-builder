@@ -31,20 +31,13 @@ yarn add @radarrelay/web3-builder
 
 ## Usage
 
-### Instantiation
-```javascript
-import { Web3Builder } from '@radarrelay/web3-builder';
-
-const web3Builder = new Web3Builder();
-```
-
 ### Web3 Creation
 
 ```javascript
 import { InjectedWeb3Subprovider } from '@radarrelay/subproviders';
 
 const walletSubprovider = new InjectedWeb3Subprovider(window.web3.currentProvider);
-let web3 = web3Builder.createWeb3(walletSubprovider, InfuraNetwork.Kovan);
+let web3 = Web3Builder.createWeb3(walletSubprovider, InfuraNetwork.Kovan);
 ```
 
 ### Update Wallet
@@ -55,14 +48,14 @@ import { EthLightwalletSubprovider } from '@radarrelay/subproviders';
 const newWalletSubprovider = new EthLightwalletSubprovider(signing, keystore, pwDerivedKey);
 
 // Updating the wallet returns a new instance of web3
-web3 = web3Builder.updateWallet(newWalletSubprovider);
+web3 = Web3Builder.updateWallet(newWalletSubprovider);
 ```
 
 ### Update Network
 
 ```javascript
 // Updating the rpc connection returns a new instance of web3
-web3 = web3Builder.updateRpcConnection(InfuraNetwork.Mainnet);
+web3 = Web3Builder.updateRpcConnection(InfuraNetwork.Mainnet);
 ```
 
 ### Grab the Provider
@@ -76,6 +69,8 @@ import * as Web3 from 'web3';
 
 const anotherWeb3Instance = new Web3(web3.currentProvider);
 ```
+
+OR
 
 ```javascript
 import * as Web3 from 'web3';
