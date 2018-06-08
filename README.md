@@ -36,6 +36,7 @@ yarn add @radarrelay/web3-builder
 ### Web3 Creation
 
 ```javascript
+import { Web3Builder } from '@radarrelay/web3-builder';
 import { InjectedWeb3Subprovider } from '@radarrelay/subproviders';
 
 const walletSubprovider = new InjectedWeb3Subprovider(window.web3.currentProvider);
@@ -82,8 +83,8 @@ const anotherWeb3Instance = new Web3(web3Builder.provider);
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Please read [CONTRIBUTING.md](https://github.com/RadarRelay/web3-builder/blob/master/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/RadarRelay/web3-builder/blob/master/LICENSE.md) file for details.
