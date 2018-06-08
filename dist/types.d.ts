@@ -2,7 +2,7 @@ export declare enum InfuraNetwork {
     Mainnet = "mainnet",
     Kovan = "kovan",
     Rinkeby = "rinkeby",
-    Ropsten = "ropsten",
+    Ropsten = "ropsten"
 }
 export declare type InfuraConfig = {
     network: InfuraNetwork;

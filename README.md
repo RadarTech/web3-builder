@@ -33,20 +33,14 @@ yarn add @radarrelay/web3-builder
 
 ## Usage
 
-### Instantiation
-```javascript
-import { Web3Builder } from '@radarrelay/web3-builder';
-
-const web3Builder = new Web3Builder();
-```
-
 ### Web3 Creation
 
 ```javascript
+import { Web3Builder } from '@radarrelay/web3-builder';
 import { InjectedWeb3Subprovider } from '@radarrelay/subproviders';
 
 const walletSubprovider = new InjectedWeb3Subprovider(window.web3.currentProvider);
-let web3 = web3Builder.createWeb3(walletSubprovider, InfuraNetwork.Kovan);
+let web3 = Web3Builder.createWeb3(walletSubprovider, InfuraNetwork.Kovan);
 ```
 
 ### Update Wallet
@@ -57,14 +51,14 @@ import { EthLightwalletSubprovider } from '@radarrelay/subproviders';
 const newWalletSubprovider = new EthLightwalletSubprovider(signing, keystore, pwDerivedKey);
 
 // Updating the wallet returns a new instance of web3
-web3 = web3Builder.updateWallet(newWalletSubprovider);
+web3 = Web3Builder.updateWallet(newWalletSubprovider);
 ```
 
 ### Update Network
 
 ```javascript
 // Updating the rpc connection returns a new instance of web3
-web3 = web3Builder.updateRpcConnection(InfuraNetwork.Mainnet);
+web3 = Web3Builder.updateRpcConnection(InfuraNetwork.Mainnet);
 ```
 
 ### Grab the Provider
@@ -89,8 +83,8 @@ const anotherWeb3Instance = new Web3(web3Builder.provider);
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Please read [CONTRIBUTING.md](https://github.com/RadarRelay/web3-builder/blob/master/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/RadarRelay/web3-builder/blob/master/LICENSE.md) file for details.
