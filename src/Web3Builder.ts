@@ -9,9 +9,9 @@ import Web3ProviderEngine = require('web3-provider-engine');
 
 export module Web3Builder {
   export let provider: Web3ProviderEngine;
-  let currentWalletSubprovider: WalletSubprovider;
-  let currentRpcSubprovider: RedundantRPCSubprovider;
-  let cacheNonce: boolean;
+  let _currentWalletSubprovider: WalletSubprovider;
+  let _currentRpcSubprovider: RedundantRPCSubprovider;
+  let _cacheNonce: boolean;
 
   /**
    * Creates a new web3 instance
@@ -39,8 +39,8 @@ export module Web3Builder {
   export function updateWallet(walletSubprovider: WalletSubprovider): Web3 {
     return constructWeb3Object(
       walletSubprovider,
-      currentRpcSubprovider,
-      cacheNonce
+      _currentRpcSubprovider,
+      _cacheNonce
     );
   };
 
@@ -55,9 +55,9 @@ export module Web3Builder {
     );
 
     return constructWeb3Object(
-      currentWalletSubprovider,
+      _currentWalletSubprovider,
       rpcSubprovider,
-      cacheNonce
+      _cacheNonce
     );
   };
 
@@ -85,9 +85,9 @@ export module Web3Builder {
     (provider as any)._ready.go();
 
     // Set current subproviders
-    currentWalletSubprovider = walletSubprovider;
-    currentRpcSubprovider = rpcSubprovider;
-    cacheNonce = cacheNonce;
+    _currentWalletSubprovider = walletSubprovider;
+    _currentRpcSubprovider = rpcSubprovider;
+    _cacheNonce = cacheNonce;
 
     return new Web3(provider);
   };
