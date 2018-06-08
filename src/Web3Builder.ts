@@ -2,7 +2,8 @@ import * as Web3 from 'web3';
 import { InfuraNetwork, RpcConnection, WalletSubprovider } from './types';
 import {
   NonceTrackerSubprovider,
-  RedundantRPCSubprovider } from '@radarrelay/subproviders';
+  RedundantRPCSubprovider
+} from '@radarrelay/subproviders';
 import { PUBLIC_RPC_PROVIDER_URLS } from './constants';
 import Web3ProviderEngine = require('web3-provider-engine');
 
@@ -79,10 +80,10 @@ export module Web3Builder {
 
     provider.addProvider(walletSubprovider);
     provider.addProvider(rpcSubprovider);
-    
+
     // Unlock provider engine without block polling
     (provider as any)._ready.go();
-    
+
     // Set current subproviders
     currentWalletSubprovider = walletSubprovider;
     currentRpcSubprovider = rpcSubprovider;
