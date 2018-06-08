@@ -2,6 +2,8 @@
 
 A tool to build and manage your own Web3 instance.
 
+[![npm version](https://badge.fury.io/js/%40radarrelay%2Fweb3-builder.svg)](https://badge.fury.io/js/%40radarrelay%2Fweb3-builder)
+
 ## Introduction
 
 This package simplifies the process to create your own [Web3](https://github.com/ethereum/wiki/wiki/JavaScript-API) instance, change the active wallet, and update the connection to the Ethereum network.
@@ -77,3 +79,11 @@ import * as Web3 from 'web3';
 
 const anotherWeb3Instance = new Web3(web3Builder.provider);
 ```
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
